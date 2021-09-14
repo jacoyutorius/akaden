@@ -3,7 +3,9 @@
 module Akaden
   describe Info do
     describe '.crawl' do
-      subject { described_class.crawl }
+      subject { described_class.crawl(station: station) }
+
+      let(:station) { 'sukenobu' }
 
       it do
         expect(subject).to include :staff
