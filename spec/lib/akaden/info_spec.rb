@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Akaden
   describe Info do
     describe '.crawl' do
