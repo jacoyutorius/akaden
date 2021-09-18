@@ -5,11 +5,11 @@ describe ::Akaden::Info do
     subject { described_class.run(station: station) }
 
     ::Akaden::STATIONS.each do |station|
-      context station[:name] do
-        let(:station) { station[:code] }
+      context station.name do
+        let(:station) { station.code }
 
         it `return stations info` do
-          VCR.use_cassette("info_#{station[:code]}") do
+          VCR.use_cassette("info_#{station.code}") do
             expect(subject).to include :name
             expect(subject).to include :staff
             expect(subject).to include :public_telephone
@@ -28,7 +28,7 @@ describe ::Akaden::Info do
             expect(subject).to include :monthly_parking
             expect(subject).to include :phone
             expect(subject).to include :aed
-            expect(subject[:name]).to eq station[:name]
+            expect(subject[:name]).to eq station.name
           end
         end
       end

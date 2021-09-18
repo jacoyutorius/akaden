@@ -1,16 +1,15 @@
-# Entetsu AKaden
-
+# Entetsu Akaden
 
 ## spec & lint
 
 spec
 
 ```
-rspec
+bundle exec rspec
 ```
 
 lint
 
 ```
-rubocop
+bundle exec rubocop
 ```

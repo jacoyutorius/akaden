@@ -8,6 +8,10 @@ GEM
       rexml
     diff-lcs (1.4.4)
     hashdiff (1.0.1)
+    mini_portile2 (2.6.1)
+    nokogiri (1.12.4)
+      mini_portile2 (~> 2.6.1)
+      racc (~> 1.4)
     nokogiri (1.12.4-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.12.4-x86_64-linux)
@@ -53,6 +57,7 @@ GEM
       hashdiff (>= 0.4.0, < 2.0.0)
 
 PLATFORMS
+  ruby
   x86_64-darwin-20
   x86_64-linux-musl
 

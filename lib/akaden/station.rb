@@ -1,24 +1,26 @@
 # frozen_string_literal: true
 
 module Akaden
+  Station = Struct.new(:code, :name)
+
   STATIONS = [
-    { code: 'shinhamamatsu', name: '新浜松' },
-    { code: 'daiichi-dori', name: '第一通り' },
-    { code: 'enshubyoin', name: '遠州病院' },
-    { code: 'hachiman', name: '八幡' },
-    { code: 'sukenobu', name: '助信' },
-    { code: 'hikuma', name: '曳馬' },
-    { code: 'kamijima', name: '上島' },
-    { code: 'jidosyagakkomae', name: '自動車学校前' },
-    { code: 'saginomiya', name: 'さぎの宮' },
-    { code: 'sekishi', name: '積志' },
-    { code: 'nishigasaki', name: '西ヶ崎' },
-    { code: 'komatsu', name: '小松' },
-    { code: 'hamakita', name: '浜北' },
-    { code: 'misonochuokoen', name: '美薗中央公園' },
-    { code: 'kobayashi', name: '小林' },
-    { code: 'shibamoto', name: '芝本' },
-    { code: 'gansuiji', name: '岩水寺' },
-    { code: 'nishikajima', name: '西鹿島' }
+    Station.new('shinhamamatsu', '新浜松'),
+    Station.new('daiichi-dori', '第一通り'),
+    Station.new('enshubyoin', '遠州病院'),
+    Station.new('hachiman', '八幡'),
+    Station.new('sukenobu', '助信'),
+    Station.new('hikuma', '曳馬'),
+    Station.new('kamijima', '上島'),
+    Station.new('jidosyagakkomae', '自動車学校前'),
+    Station.new('saginomiya', 'さぎの宮'),
+    Station.new('sekishi', '積志'),
+    Station.new('nishigasaki', '西ヶ崎'),
+    Station.new('komatsu', '小松'),
+    Station.new('hamakita', '浜北'),
+    Station.new('misonochuokoen', '美薗中央公園'),
+    Station.new('kobayashi', '小林'),
+    Station.new('shibamoto', '芝本'),
+    Station.new('gansuiji', '岩水寺'),
+    Station.new('nishikajima', '西鹿島')
   ].freeze
 end

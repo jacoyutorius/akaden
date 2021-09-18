@@ -1,0 +1,13 @@
+version: '3'
+services:
+  ruby:
+    container_name: ruby-dev
+    tty: true
+    privileged: true
+    build: .
+  dynamo-admin:
+    container_name: dynamodb-admin
+    image: instructure/dynamo-local-admin
+    ports:
+        - '8000:8000'
+        - '8002:8002'
