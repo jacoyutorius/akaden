@@ -20,9 +20,16 @@ module Akaden
     def run
       {
         name: station_name,
+        version: version,
         **station_info,
         **basic_info
       }
+    end
+
+    private
+
+    def version
+      Time.now.year
     end
 
     def station_name
@@ -40,31 +47,37 @@ module Akaden
       }
     end
 
+    # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
     def basic_info
-      body = page.css('#stBasic > div.facilities > table > tr > td')
-
       {
-        toilet: text_parser(body[0]&.text),
-        toilet_multipurpose: text_parser(body[1]&.text),
-        staff: text_parser(body[2]&.text),
-        wheelchair: text_parser(body[3]&.text),
-        elevator: text_parser(body[4]&.text),
-        pass: text_parser(body[5]&.text),
-        bycicle_parking: text_parser(body[6]&.text),
-        monthly_parking: text_parser(body[7]&.text),
-        daily_parking: text_parser(body[8]&.text),
-        coin_locker: text_parser(body[9]&.text),
-        public_telephone: text_parser(body[10]&.text),
-        aed: text_parser(body[11]&.text),
+        toilet: text_parser(body[0]),
+        toilet_multipurpose: text_parser(body[1]),
+        staff: text_parser(body[2]),
+        wheelchair: text_parser(body[3]),
+        elevator: text_parser(body[4]),
+        pass: text_parser(body[5]),
+        bycicle_parking: text_parser(body[6]),
+        monthly_parking: text_parser(body[7]),
+        daily_parking: text_parser(body[8]),
+        coin_locker: text_parser(body[9]),
+        public_telephone: text_parser(body[10]),
+        aed: text_parser(body[11])
       }
+    end
+    # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
+
+    def body
+      @body ||= page.css('#stBasic > div.facilities > table > tr > td')
     end
 
     def text_parser(text)
-      text == '○' || text == '有'
+      return false if text.nil?
+
+      ['○', '有'].include?(text)
     end
 
     def page
-      @page ||= Nokogiri.HTML(URI.open(@url))
+      @page ||= Nokogiri.HTML(URI.parse(@url).open)
     end
   end
 end
