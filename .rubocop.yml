@@ -5,7 +5,7 @@ Style/Documentation:
   Exclude:
     - 'spec/**/*'
     - 'test/**/*'
-    - 'lib/akaden/info.rb'
+    - 'lib/akaden/*.rb'
 
 Metrics/BlockLength:
   Exclude:
